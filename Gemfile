@@ -11,6 +11,7 @@ gem 'bcrypt'
 gem 'backbone-on-rails'
 gem 'newrelic_rpm'
 gem 'cloudinary'
+gem 'bootstrap-sass'
 
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
