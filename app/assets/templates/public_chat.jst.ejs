@@ -1,7 +1,7 @@
-<ul>
+<ul class="message-list">
   <% messages.forEach(function(msg){ %>
     <li> <%= msg.get('content') %> </li>
   <% }) %>
 </ul>
 
-<button class="add-msg">Add Message</button>
+<form class="add-content"><input class="add-msg"></input></form>

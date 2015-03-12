@@ -1,0 +1,29 @@
+.pub-chat {
+  position: absolute;
+  border: 1px solid black;
+  height: 350px;
+  margin-left: 25%;
+  top: 150px;
+  width: 500px;
+}
+
+.message-list {
+  list-style-type: none;
+  margin: 0px;
+  padding-left: 0px;
+  position: absolute;
+  bottom: 45px;
+  width: 100%;
+}
+
+.message-list li{
+  border: 1px solid black;
+  width: 100%;
+}
+
+.add-msg {
+  position: absolute;
+  bottom: 1px;
+  height: 40px;
+  width: 100%;  
+}

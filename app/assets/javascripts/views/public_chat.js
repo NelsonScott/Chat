@@ -3,24 +3,24 @@
 Chat.Views.publicChat = Backbone.View.extend({
   template: JST["public_chat"],
 
-  id: "pub-chat",
+  attributes: function(){
+    return { class: "pub-chat" }
+  },
 
   initialize: function(messages){
     this.messages = messages.collection;
     // this.messages.create({ content: "Tst main msg"} );
     this.listenTo(this.messages, "add", this.render);
-
-    // this.render();
   },
 
   events: {
-    "click .add-msg": "addMessage"
+    "submit .add-content": "addMessage"
   },
 
   addMessage: function(event){
     event.preventDefault();
-    // for testing just add manually
-    this.messages.create({ content: "Added Test" });
+    var newMsg = this.$(".add-msg").val();
+    this.messages.create({ content: newMsg });
   },
 
   render: function(){
