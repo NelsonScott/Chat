@@ -1,0 +1,19 @@
+{
+  "name": "chat",
+  "version": "0.0.0",
+  "homepage": "https://github.com/NelsonScott/Chat",
+  "authors": [
+    "Scott Nelson <Scott.D.Nelson@dartmouth.edu>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbonefire": "~0.5.1"
+  }
+}

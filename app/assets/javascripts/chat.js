@@ -4,7 +4,7 @@ window.Chat = {
   Views: {},
   Routers: {},
   initialize: function() {
-    var $chatBox = $('#chat-box');
+    var $chats = $('#chats');
     var $rooms = $('#rooms');
 
     // var roomsView = new Chat.Views.rooms({
@@ -12,7 +12,7 @@ window.Chat = {
     // });
     // $rooms.html(roomsView.render().$el);
 
-    // new Redly.Routers.Router($chatBox);
-    // Backbone.history.start();
+    new Chat.Routers.Router($chats);
+    Backbone.history.start();
   }
 }
