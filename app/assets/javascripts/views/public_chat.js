@@ -8,8 +8,8 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
   initialize: function(messages){
     this.messages = messages.collection;
     this.listenTo(this.messages, "add", this.attachMessage);
-    this.listenTo(this.messages, "add", this.render);
-    this.listenTo(this.messages, "remove", this.render);
+    // this.listenTo(this.messages, "add", this.render);
+    this.listenTo(this.messages, "remove", this.removeMessage);
   },
 
   events: {
@@ -20,12 +20,28 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
     event.preventDefault();
     var newMsg = this.$(".add-msg").val();
     this.messages.create({ type: "plainText", content: newMsg });
+    this.$('.add-msg').val("");
   },
 
   attachMessage: function(message){
     var messageView = new Chat.Views.message({ message: message });
     this.addSubview('ul.message-list', messageView);
+    var MessageList = this.$(".message-list");
+    MessageList.scrollTop(MessageList[0].scrollHeight);
   },
+
+  removeMessage: function(message){
+    var subview = _.find(
+      this.subviews("ul.message-list"),
+      function (subview) {
+        return subview.message === message;
+      }
+    );
+
+    this.removeSubview("ul.message-list", subview);
+    this.render();
+  },
+
 
   render: function(){
     var content = this.template();
