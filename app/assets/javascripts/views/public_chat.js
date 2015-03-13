@@ -31,6 +31,8 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
     var content = this.template();
     this.$el.html(content);
     this.attachSubviews();
+    var MessageList = this.$(".message-list");
+    MessageList.scrollTop(MessageList[0].scrollHeight);
 
     return this;
   },
