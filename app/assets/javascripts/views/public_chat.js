@@ -1,6 +1,4 @@
-// TODO change this to composite view
-// simple view now just for testing firebase
-Chat.Views.publicChat = Backbone.View.extend({
+Chat.Views.publicChat = Backbone.CompositeView.extend({
   template: JST["public_chat"],
 
   attributes: function(){
@@ -9,8 +7,9 @@ Chat.Views.publicChat = Backbone.View.extend({
 
   initialize: function(messages){
     this.messages = messages.collection;
-    // this.messages.create({ content: "Tst main msg"} );
+    this.listenTo(this.messages, "add", this.attachMessage);
     this.listenTo(this.messages, "add", this.render);
+    this.listenTo(this.messages, "remove", this.render);
   },
 
   events: {
@@ -20,13 +19,18 @@ Chat.Views.publicChat = Backbone.View.extend({
   addMessage: function(event){
     event.preventDefault();
     var newMsg = this.$(".add-msg").val();
-    this.messages.create({ content: newMsg });
+    this.messages.create({ type: "plainText", content: newMsg });
+  },
+
+  attachMessage: function(message){
+    var messageView = new Chat.Views.message({ message: message });
+    this.addSubview('ul.message-list', messageView);
   },
 
   render: function(){
-    // change this to attaching message subview
-    var content = this.template({messages: this.messages});
+    var content = this.template();
     this.$el.html(content);
+    this.attachSubviews();
 
     return this;
   },

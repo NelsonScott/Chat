@@ -1,6 +1,7 @@
 Chat.Collections.messages = Backbone.Firebase.Collection.extend({
   initialize: function(options){
     this.name = options.name;
+    this.type = options.type;
   },
 
   model: Chat.Models.message,
