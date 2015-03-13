@@ -16,15 +16,19 @@
   position: absolute;
   bottom: 45px;
   width: 100%;
-  height: 350px;
+  height: 305px;
 }
 
-.message-list li{
+.message-list li {
   border-bottom: 1px solid black;
   height: 40px;
   width: 100%;
 }
 
+.add-content {
+  width: 100%;
+  height: 40px;
+}
 .add-msg {
   position: absolute;
   bottom: 1px;
