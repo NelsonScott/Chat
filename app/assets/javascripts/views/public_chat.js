@@ -8,7 +8,6 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
   initialize: function(messages){
     this.messages = messages.collection;
     this.listenTo(this.messages, "add", this.attachMessage);
-    // this.listenTo(this.messages, "add", this.render);
     this.listenTo(this.messages, "remove", this.removeMessage);
   },
 
@@ -39,7 +38,8 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
     );
 
     this.removeSubview("ul.message-list", subview);
-    this.render();
+    // check if necessary call
+    // this.render();
   },
 
 
