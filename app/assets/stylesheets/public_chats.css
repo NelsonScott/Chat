@@ -45,10 +45,24 @@
 }
 
 .add-msg {
-  position: absolute;
+  position: relative;
+  float: right;
   bottom: 1px;
   height: 40px;
-  width: 100%;
+  width: 70%;
+}
+
+.submit-content {
+  width:0;
+  visibility:hidden;
+}
+
+.display-name {
+  position: relative;
+  float: left;
+  bottom: 1px;
+  height: 40px;
+  width: 30%;
 }
 
 .delete-message {

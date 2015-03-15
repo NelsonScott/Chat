@@ -1,5 +1,6 @@
 Chat.Models.message = Backbone.Model.extend({
   defaults: {
-    content: ""
+    content: "",
+    displayName: "Guest"
   }
 });

@@ -18,7 +18,8 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
   addMessage: function(event){
     event.preventDefault();
     var newMsg = this.$(".add-msg").val();
-    this.messages.create({ type: "plainText", content: newMsg });
+    var displayName = this.$('.display-name').val();
+    this.messages.create({ type: "plainText", content: newMsg, displayName: displayName });
     this.$('.add-msg').val("");
   },
 
@@ -38,8 +39,6 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
     );
 
     this.removeSubview("ul.message-list", subview);
-    // check if necessary call
-    // this.render();
   },
 
 
