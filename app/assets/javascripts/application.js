@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require profanity.js
 //= require bootstrap-sprockets
 //= require underscore
 //= require backbone
