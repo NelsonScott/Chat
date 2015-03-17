@@ -65,9 +65,20 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
 
     for (var i = 0; i < words.length; i++) {
       word = words[i];
-      url = word.match(/(http).*(tif|tiff|gif|jpeg|jpg|jif|jfif|jp2|jpx|j2k|j2c|fpx|pcd|png|pdf)/ig);
+      url = word.match(/(http).*(svg|tif|tiff|gif|jpeg|jpg|jif|jfif|jp2|jpx|j2k|j2c|fpx|pcd|png|pdf)/ig);
       if (url) {
         words[i] = "<img class='user-image' src='" + url + "'>";
+      } else {
+        url = word.match(/(http).*(youtube).*/ig);
+        if (url) {
+          var video_id = url[0].split('v=')[1];
+          var ampersandPosition = video_id.indexOf('&');
+          if (ampersandPosition != -1) {
+            video_id = video_id.substring(0, ampersandPosition);
+          }
+
+          words[i] = "<iframe width='560' height='315' src='https://www.youtube.com/embed/"+ video_id + "' frameborder='0' allowfullscreen></iframe>'";
+        }
       }
     }
 
