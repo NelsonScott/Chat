@@ -53,6 +53,11 @@
   margin-top: 10px;
 }
 
+.user-image {
+  max-height: 200px;
+  width: auto;
+}
+
 .add-content-wrapper {
   position: absolute;
   margin-bottom: 0px;

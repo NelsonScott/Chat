@@ -67,7 +67,7 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
       word = words[i];
       url = word.match(/(http).*(tif|tiff|gif|jpeg|jpg|jif|jfif|jp2|jpx|j2k|j2c|fpx|pcd|png|pdf)/ig);
       if (url) {
-        words[i] = "<img src='" + url + "' width='50' height='50'>";
+        words[i] = "<img class='user-image' src='" + url + "'>";
       }
     }
 
