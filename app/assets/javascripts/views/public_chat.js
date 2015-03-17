@@ -14,7 +14,8 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
   },
 
   events: {
-    "submit .add-content": "addMessage"
+    "submit .add-content": "addMessage",
+    "click .sign-up": "signUp"
   },
 
   addMessage: function(event){
@@ -101,6 +102,28 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
     );
 
     this.removeSubview("ul.message-list", subview);
+  },
+// testing Ajax signup, TODO move this
+  signUp: function(){
+    $.ajax ({
+      headers: {
+        'X-Transaction': 'POST Example',
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      },
+      url: "users",
+      type: "POST",
+      dataType: 'json',
+      data: {
+        "user": {"email": "scott11@example.com", "password": "password"},
+      },
+      success: function(msg){
+        console.log("Success");
+      },
+      error: function(msg) {
+        debugger
+        console.log("Errors");
+      }
+    });
   },
 
   render: function(){
