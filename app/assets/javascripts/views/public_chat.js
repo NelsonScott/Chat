@@ -23,7 +23,7 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
     var message = this.$(".add-msg").val();
     var displayName = this.$('.display-name-input').val();
     message = this.profanityFilter(this.ASCIIOnly(message));
-    var formattedMessage = this.formatImages(message);
+    var formattedMessage = this.formatMedia(message);
     this.messages.create({ content: formattedMessage, displayName: displayName });
     this.$('.add-msg').val("");
   },
@@ -58,7 +58,7 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
     return words.join(" ");
   },
 
-  formatImages: function(message) {
+  formatMedia: function(message) {
     var words = message.split(" ");
     var word = null;
     var url = null;
