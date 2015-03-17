@@ -120,7 +120,6 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
         console.log("Success");
       },
       error: function(msg) {
-        debugger
         console.log("Errors");
       }
     });
