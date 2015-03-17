@@ -1,11 +1,11 @@
 .pub-chat {
-  background-color: #f2f2f2;
+  background-color: white;
   overflow-y: scroll;
   position: absolute;
   border: 1px solid black;
   height: 350px;
   margin-left: 25%;
-  top: 150px;
+  margin-top: 150px;
   width: 500px;
 }
 
@@ -14,63 +14,76 @@
   list-style-type: none;
   margin: 0px;
   padding-left: 0px;
-  position: absolute;
   bottom: 45px;
   width: 100%;
   height: 305px;
 }
 
 .message-list li {
-  border-bottom: 1px solid black;
+  border-top: 1px solid #DDD;
   min-height: 40px;
   width: 100%;
 }
 
-.message-list li p {
-  color: blue;
-  display: inline;
-  margin-left: 10px;
+.message-content {
+  padding-left: 10px;
+  width: 100%;
+}
+
+.message-header {
+  color: black;
+  font-weight: 900;
   margin-top: 10px;
-  width: 95%;
-}
-
-.add-content-wrapper {
-  position: absolute;
-  bottom: 1px;
-  width: 100%;
-}
-
-.add-content {
-  width: 100%;
-  height: 40px;
-}
-
-.add-msg {
-  position: relative;
-  float: right;
-  bottom: 1px;
-  height: 40px;
-  width: 70%;
-}
-
-.submit-content {
-  width:0;
-  visibility:hidden;
 }
 
 .display-name {
-  position: relative;
-  float: left;
-  bottom: 1px;
-  height: 40px;
-  width: 30%;
+  display: inline;
 }
 
 .delete-message {
   background:none;
   border:none;
   float: right;
-  margin-right: 5px;
-  margin-top: 5px;
+  padding-right: 10px;
   outline: none;
+}
+
+.message-body {
+  color: #3D3C40;
+  margin-top: 10px;
+}
+
+.add-content-wrapper {
+  position: absolute;
+  margin-bottom: 0px;
+  height: 45px;
+  width: 100%;
+}
+
+.add-content {
+  width: 100%;
+  height: 45px;
+}
+
+.add-msg {
+  bottom: 0px;
+  position: relative;
+  float: right;
+  bottom: 1px;
+  height: 45px;
+  width: 70%;
+}
+
+.display-name-input {
+  bottom: 0px;
+  position: relative;
+  float: left;
+  bottom: 1px;
+  height: 45px;
+  width: 30%;
+}
+
+.submit-content {
+  position: absolute;
+  visibility: hidden;
 }

@@ -7,7 +7,7 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
 
   initialize: function(messages){
     this.profanityList = $.fn.profanity();
-    this.friendlyList = ["rainbow", "kittens", "hug", "puppy", "tickles", "dazzling", "bunnies", "balloons", "ice cream", "jello"];
+    this.friendlyList = ["rainbow", "kittens", "hug", "puppy", "tickles", "dazzling", "bunnies", "balloons", "ice cream", "jello", "smiles", "sunshines"];
     this.messages = messages.collection;
     this.listenTo(this.messages, "add", this.attachMessage);
     this.listenTo(this.messages, "remove", this.removeMessage);
@@ -20,9 +20,9 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
   addMessage: function(event){
     event.preventDefault();
     var newMsg = this.$(".add-msg").val();
-    newMsg = this.ensureASCII(newMsg);
-    newMsg = this.profanityFilter(newMsg);
-    var displayName = this.$('.display-name').val();
+    newMsg = this.profanityFilter(this.ensureASCII(newMsg));
+    // newMsg = (newMsg);
+    var displayName = this.$('.display-name-input').val();
     this.messages.create({ type: "plainText", content: newMsg, displayName: displayName });
     this.$('.add-msg').val("");
   },

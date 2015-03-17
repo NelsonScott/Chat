@@ -1,2 +1,5 @@
-<p><%= message.escape('displayName') %>: <%= message.escape('content') %></p>
-<button class="delete-message">X</button>
+<div class="message-header">
+  <p class="display-name"><%= message.escape('displayName') %></p>
+  <button class="delete-message">X</button>
+</div>
+<p class="message-body"><%= message.escape('content') %></p>

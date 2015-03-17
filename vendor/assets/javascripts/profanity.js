@@ -188,6 +188,7 @@ $.fn.profanity = function() {
     "hard core",
     "hardcore",
     "hentai",
+    "ho",
     "homoerotic",
     "honkey",
     "hooker",
