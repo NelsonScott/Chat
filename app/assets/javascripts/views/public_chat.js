@@ -7,7 +7,7 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
 
   initialize: function(messages){
     this.profanityList = $.fn.profanity();
-    this.friendlyList = ["rainbow", "kittens", "hug", "puppy", "tickles", "dazzling", "bunnies", "balloons", "ice cream", "jello", "smiles", "sunshines"];
+    this.friendlyList = ["rainbow", "kittens", "hug", "puppy", "tickles", "dazzling", "bunnies", "balloons", "ice cream", "jello", "smiles", "sunshine"];
     this.messages = messages.collection;
     this.listenTo(this.messages, "add", this.attachMessage);
     this.listenTo(this.messages, "remove", this.removeMessage);
@@ -19,15 +19,16 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
 
   addMessage: function(event){
     event.preventDefault();
-    var newMsg = this.$(".add-msg").val();
-    newMsg = this.profanityFilter(this.ensureASCII(newMsg));
-    // newMsg = (newMsg);
+
+    var message = this.$(".add-msg").val();
     var displayName = this.$('.display-name-input').val();
-    this.messages.create({ type: "plainText", content: newMsg, displayName: displayName });
+    message = this.profanityFilter(this.ASCIIOnly(message));
+    var formattedMessage = this.formatImages(message);
+    this.messages.create({ content: formattedMessage, displayName: displayName });
     this.$('.add-msg').val("");
   },
 
-  ensureASCII: function(unfiltered) {
+  ASCIIOnly: function(unfiltered) {
     var charCode = null;
     var filtered = Array(unfiltered.length);
 
@@ -49,8 +50,24 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
     for (var i = 0; i < words.length; i++){
       var found = $.inArray(words[i], this.profanityList);
       if ( found > - 1){
-        var idx = Math.floor((Math.random() * this.friendlyList.length));
+        var idx = Math.round((Math.random() * this.friendlyList.length));
         words[i] = this.friendlyList[idx];
+      }
+    }
+
+    return words.join(" ");
+  },
+
+  formatImages: function(message) {
+    var words = message.split(" ");
+    var word = null;
+    var url = null;
+
+    for (var i = 0; i < words.length; i++) {
+      word = words[i];
+      url = word.match(/(http).*(tif|tiff|gif|jpeg|jpg|jif|jfif|jp2|jpx|j2k|j2c|fpx|pcd|png|pdf)/ig);
+      if (url) {
+        words[i] = "<img src='" + url + "' width='50' height='50'>";
       }
     }
 
