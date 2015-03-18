@@ -49,7 +49,7 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
     var words = unfiltered.split(" ");
 
     for (var i = 0; i < words.length; i++){
-      var found = $.inArray(words[i], this.profanityList);
+      var found = $.inArray(words[i].toLowerCase(), this.profanityList);
       if ( found > - 1){
         var idx = Math.round((Math.random() * this.friendlyList.length - 1));
         words[i] = this.friendlyList[idx];
