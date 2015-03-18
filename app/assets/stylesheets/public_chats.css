@@ -2,7 +2,7 @@
   background-color: white;
   overflow-y: scroll;
   position: absolute;
-  border: 1px solid black;
+  border: 1px solid #DDD;
   height: 350px;
   margin-left: 25%;
   margin-top: 150px;
@@ -20,7 +20,8 @@
 }
 
 .message-list li {
-  border-top: 1px solid #DDD;
+  margin-top: 15px;
+  margin-bottom: 15px;
   min-height: 40px;
   width: 100%;
 }
@@ -51,6 +52,7 @@
 .message-body {
   color: #3D3C40;
   margin-top: 10px;
+  margin-right: 10px;
 }
 
 .user-image {
@@ -70,22 +72,50 @@
   height: 45px;
 }
 
-.add-msg {
-  bottom: 0px;
-  position: relative;
-  float: right;
-  bottom: 1px;
-  height: 45px;
-  width: 70%;
-}
-
 .display-name-input {
   bottom: 0px;
   position: relative;
   float: left;
   bottom: 1px;
   height: 45px;
+  margin-left: -1px;
   width: 30%;
+}
+
+.display-name-input::-webkit-input-placeholder { /* WebKit browsers */
+  padding-left: 1px;
+}
+.display-name-input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  margin-left: 1px;
+}
+.display-name-input::-moz-placeholder { /* Mozilla Firefox 19+ */
+  margin-left: 1px;
+}
+.display-name-input:-ms-input-placeholder { /* Internet Explorer 10+ */
+  margin-left: 1px;
+}
+
+.add-msg {
+  bottom: 0px;
+  position: relative;
+  float: right;
+  bottom: 1px;
+  height: 45px;
+  margin-right: -1px;
+  width: 70%;
+}
+
+.add-msg::-webkit-input-placeholder { /* WebKit browsers */
+  padding-left: 10px;
+}
+.add-msg:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  margin-left: 10px;
+}
+.add-msg::-moz-placeholder { /* Mozilla Firefox 19+ */
+  margin-left: 10px;
+}
+.add-msg:-ms-input-placeholder { /* Internet Explorer 10+ */
+  margin-left: 10px;
 }
 
 .submit-content {
