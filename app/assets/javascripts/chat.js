@@ -7,10 +7,11 @@ window.Chat = {
     var $chats = $('#chats');
     var $rooms = $('#rooms');
 
-    // var roomsView = new Chat.Views.rooms({
-    //   collection:
-    // });
-    // $rooms.html(roomsView.render().$el);
+    var rooms = new Chat.Collections.rooms();
+    var roomsView = new Chat.Views.rooms({
+      rooms: rooms
+    });
+    $rooms.html(roomsView.render().$el);
 
     new Chat.Routers.Router($chats);
     Backbone.history.start();
