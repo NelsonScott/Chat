@@ -1,6 +1,10 @@
 Chat.Views.rooms = Backbone.CompositeView.extend({
   template: JST["rooms"],
 
+  attributes: function(){
+    return {class: "rooms-list-wrapper"}
+  },
+
   initialize: function(options){
     this.rooms = options.rooms;
     this.listenTo(this.rooms, "add", this.attachRoom);
@@ -8,13 +12,16 @@ Chat.Views.rooms = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click .add-room": "addRoom"
+    "submit .add-room": "addRoom"
   },
 
-  addRoom: function(event){
+  addRoom: function(event) {
     event.preventDefault();
 
-    this.rooms.create({ name: "New Room" })
+    var nameInput = this.$('.add-room-input');
+    var name = nameInput.val();
+    this.rooms.create({ name: name });
+    nameInput.val("");
   },
 
   attachRoom: function(room) {
@@ -36,6 +43,7 @@ Chat.Views.rooms = Backbone.CompositeView.extend({
   render: function(){
     var content = this.template();
     this.$el.html(content);
+    this.attachSubviews();
 
     return this;
   },
