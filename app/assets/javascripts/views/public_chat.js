@@ -117,10 +117,10 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
         "user": {"email": "scott11@example.com", "password": "password"},
       },
       success: function(msg){
-        console.log("Success");
+        console.log("Successfully signed up.");
       },
       error: function(msg) {
-        console.log("Errors");
+        console.log("Error signing up.");
       }
     });
   },

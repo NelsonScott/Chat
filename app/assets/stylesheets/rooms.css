@@ -1,0 +1,12 @@
+#rooms {
+  /*margin-left: 25%;*/
+  border: 1px solid #DDD;
+  display: inline-block;
+  float: left;
+  width: 200px;
+  height: 350px;
+}
+
+ul.rooms-list {
+  list-style-type: none;
+}

@@ -1,11 +1,17 @@
+#chats {
+  /*margin-left: 25%;
+  margin-top: 150px;*/
+  display: inline-block;
+  width: 1000;
+  height: 350px;
+}
+
 .pub-chat {
   background-color: white;
   overflow-y: scroll;
   position: absolute;
   border: 1px solid #DDD;
   height: 350px;
-  margin-left: 25%;
-  margin-top: 150px;
   width: 500px;
 }
 
