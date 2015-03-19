@@ -20,7 +20,19 @@ Chat.Views.rooms = Backbone.CompositeView.extend({
 
     var nameInput = this.$('.add-room-input');
     var name = nameInput.val();
-    this.rooms.create({ name: name });
+
+    var found = false;
+    this.rooms.each(function(room){
+      if (room.escape('name') == name) {
+        alert("Room already exists");
+        found = true;
+      }
+    });
+
+    if (!found){
+      this.rooms.create({ name: name });
+      Backbone.history.navigate("rooms/" + name, {trigger: true})
+    }
     nameInput.val("");
   },
 
