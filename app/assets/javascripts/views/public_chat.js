@@ -25,8 +25,24 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
     var displayName = this.$('.display-name-input').val();
     message = this.profanityFilter(this.ASCIIOnly(message));
     var formattedMessage = this.formatMedia(message);
-    this.messages.create({ content: formattedMessage, displayName: displayName });
+    this.messages.create({
+      content: formattedMessage,
+      displayName: displayName,
+      time: this.formatAMPM()
+    });
     this.$('.add-msg').val("");
+  },
+
+  formatAMPM: function() {
+    var date = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
   },
 
   ASCIIOnly: function(unfiltered) {

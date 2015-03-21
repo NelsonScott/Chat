@@ -47,6 +47,12 @@
   display: inline;
 }
 
+.timestamp {
+  color: #babbbf;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
 .delete-message {
   background:none;
   border:none;
