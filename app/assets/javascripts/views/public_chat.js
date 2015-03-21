@@ -94,7 +94,7 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
             video_id = video_id.substring(0, ampersandPosition);
           }
           // TODO fix scaling to work for all videos
-          words[i] = "<iframe width='400' height='223' src='https://www.youtube.com/embed/"+ video_id + "' frameborder='0' allowfullscreen></iframe>'";
+          words[i] = "<iframe width='400' height='223' src='https://www.youtube.com/embed/"+ video_id + "' frameborder='0' allowfullscreen></iframe>";
         }
       }
     }

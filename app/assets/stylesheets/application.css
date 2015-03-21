@@ -15,8 +15,8 @@
  */
 
 #main-content {
-  width: 1000px;
+  width: 700px;
   height: 500px;
-  margin-left: 20%;
+  margin: 0 auto;
   margin-top: 150px;
 }
