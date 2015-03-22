@@ -1,4 +1,4 @@
-Chat.Views.rooms = Backbone.CompositeView.extend({
+Chat.Views.rooms = Chat.Views.textFilters.extend({
   template: JST["rooms"],
 
   attributes: function(){

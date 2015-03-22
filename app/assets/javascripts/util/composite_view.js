@@ -53,5 +53,5 @@ Backbone.CompositeView = Backbone.View.extend({
         subview.remove();
       })
     })
-  }
+  },
 })

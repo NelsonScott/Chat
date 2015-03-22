@@ -1,4 +1,4 @@
-Chat.Views.publicChat = Backbone.CompositeView.extend({
+Chat.Views.publicChat = Chat.Views.textFilters.extend({
   template: JST["public_chat"],
 
   attributes: function(){
@@ -55,36 +55,6 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
     return strTime;
   },
 
-  ASCIIOnly: function(unfiltered) {
-    var charCode = null;
-    var filtered = Array(unfiltered.length);
-
-    for (var i = 0; i < unfiltered.length; i++) {
-      charCode = unfiltered.charCodeAt(i);
-      if (charCode > 255) {
-        filtered[i] = "[]";
-      } else {
-        filtered[i] = unfiltered[i];
-      }
-    }
-
-    return filtered.join("");
-  },
-
-  profanityFilter: function(unfiltered) {
-    var words = unfiltered.split(" ");
-
-    for (var i = 0; i < words.length; i++){
-      var found = $.inArray(words[i].toLowerCase(), this.profanityList);
-      if ( found > - 1){
-        var idx = Math.round((Math.random() * (this.friendlyList.length - 1)));
-        words[i] = this.friendlyList[idx];
-      }
-    }
-
-    return words.join(" ");
-  },
-
   formatMedia: function(message) {
     var words = message.split(" ");
     var word = null;
@@ -113,7 +83,6 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
   },
 
   attachMessage: function(message){
-    // dont allow empty messages
     if (message.get('content').length != 0){
       var messageView = new Chat.Views.message({ message: message });
       this.addSubview('ul.message-list', messageView);
