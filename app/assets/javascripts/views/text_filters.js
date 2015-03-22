@@ -15,6 +15,19 @@ Chat.Views.textFilters = Backbone.CompositeView.extend({
     return filtered.join("");
   },
 
+  hasRestrictedChars: function(unfiltered) {
+    var forbidden = [".", "#", "$", "[", "]"];
+    var char = null;
+    for (var i = 0; i < forbidden.length; i++){
+      char = forbidden[i];
+      if ( unfiltered.indexOf(char) > -1 ) {
+        return char;
+      }
+    }
+
+    return false;
+  },
+
   profanityFilter: function(unfiltered) {
     var words = unfiltered.split(" ");
 

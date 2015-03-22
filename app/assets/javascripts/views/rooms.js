@@ -20,6 +20,14 @@ Chat.Views.rooms = Chat.Views.textFilters.extend({
 
     var nameInput = this.$('.add-room-input');
     var name = nameInput.val();
+    name = name.substring(0, 15);
+    name = this.profanityFilter(this.ASCIIOnly(name));
+
+    var forbiddenChars = this.hasRestrictedChars(name);
+    if (forbiddenChars){
+      alert("Room name cannot contain: " + forbiddenChars);
+      return;
+    }
 
     var found = false;
     this.rooms.each(function(room){
