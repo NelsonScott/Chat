@@ -63,6 +63,8 @@
 
 .message-body {
   color: #3D3C40;
+  width: 100%;
+  word-wrap: break-word;
   margin-top: 10px;
   margin-right: 10px;
 }
