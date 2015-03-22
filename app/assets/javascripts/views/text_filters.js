@@ -15,7 +15,7 @@ Chat.Views.textFilters = Backbone.CompositeView.extend({
     return filtered.join("");
   },
 
-  hasRestrictedChars: function(unfiltered) {
+  restrictedChars: function(unfiltered) {
     var forbidden = [".", "#", "$", "[", "]"];
     var char = null;
     for (var i = 0; i < forbidden.length; i++){

@@ -23,7 +23,7 @@ Chat.Views.rooms = Chat.Views.textFilters.extend({
     name = name.substring(0, 15);
     name = this.profanityFilter(this.ASCIIOnly(name));
 
-    var forbiddenChars = this.hasRestrictedChars(name);
+    var forbiddenChars = this.restrictedChars(name);
     if (forbiddenChars){
       alert("Room name cannot contain: " + forbiddenChars);
       return;
