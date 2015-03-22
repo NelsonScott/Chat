@@ -27,8 +27,13 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
     event.preventDefault();
 
     var message = this.$(".add-msg").val();
-    var displayName = this.$('.display-name-input').val();
+    message = message.substring(0, 200);
     message = this.profanityFilter(this.ASCIIOnly(message));
+
+    var displayName = this.$('.display-name-input').val();
+    displayName = displayName.substring(0, 15);
+    displayName = this.profanityFilter(this.ASCIIOnly(displayName));
+
     var formattedMessage = this.formatMedia(message);
     this.messages.create({
       content: formattedMessage,
