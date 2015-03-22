@@ -5,12 +5,17 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
     return { class: "pub-chat" }
   },
 
-  initialize: function(messages){
+  initialize: function(options){
+    this.messages = options.messages;
     this.profanityList = $.fn.profanity();
     this.friendlyList = ["rainbow", "kittens", "hug", "puppy", "tickles", "dazzling", "bunnies", "balloons", "ice cream", "jello", "smiles", "sunshine"];
-    this.messages = messages.collection;
     this.listenTo(this.messages, "add", this.attachMessage);
     this.listenTo(this.messages, "remove", this.removeMessage);
+
+    var that = this;
+    this.messages.each(function(msg){
+      that.attachMessage(msg);
+    });
   },
 
   events: {
@@ -93,7 +98,7 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
           if (ampersandPosition != -1) {
             video_id = video_id.substring(0, ampersandPosition);
           }
-          // TODO fix scaling to work for all videos
+          // TODO fix scaling
           words[i] = "<iframe width='400' height='223' src='https://www.youtube.com/embed/"+ video_id + "' frameborder='0' allowfullscreen></iframe>";
         }
       }
@@ -103,10 +108,13 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
   },
 
   attachMessage: function(message){
-    var messageView = new Chat.Views.message({ message: message });
-    this.addSubview('ul.message-list', messageView);
-    var MessageList = this.$(".message-list");
-    MessageList.scrollTop(MessageList[0].scrollHeight);
+    // dont allow empty messages
+    if (message.get('content').length != 0){
+      var messageView = new Chat.Views.message({ message: message });
+      this.addSubview('ul.message-list', messageView);
+    }
+    // var MessageList = this.$("ul.message-list");
+    // MessageList.scrollTop(MessageList[0].scrollHeight);
   },
 
   removeMessage: function(message){
@@ -119,7 +127,7 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
 
     this.removeSubview("ul.message-list", subview);
   },
-// testing Ajax signup, TODO move this
+// TODO move this to rooms view, require signup before making new room
   signUp: function(){
     $.ajax ({
       headers: {
@@ -145,7 +153,7 @@ Chat.Views.publicChat = Backbone.CompositeView.extend({
     var content = this.template();
     this.$el.html(content);
     this.attachSubviews();
-    var MessageList = this.$(".message-list");
+    var MessageList = this.$("ul.message-list");
     MessageList.scrollTop(MessageList[0].scrollHeight);
 
     return this;

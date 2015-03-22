@@ -12,7 +12,7 @@ Chat.Routers.Router = Backbone.Router.extend({
     var messages = new Chat.Collections.messages({name: "main"});
 
     var publicChatView = new Chat.Views.publicChat({
-      collection: messages
+      messages: messages
     });
 
     this._swapView(publicChatView);
@@ -20,11 +20,10 @@ Chat.Routers.Router = Backbone.Router.extend({
 
   room: function(room){
     var messages = new Chat.Collections.messages({ name: room });
-    
-    var publicChatView = new Chat.Views.publicChat({
-      collection: messages
-    });
 
+    var publicChatView = new Chat.Views.publicChat({
+      messages: messages
+    });
     this._swapView(publicChatView);
   },
 
