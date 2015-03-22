@@ -1,10 +1,11 @@
 #rooms {
-  /*margin-left: 25%;*/
+  background-color: white;
+  margin-right: 5px;
   border: 1px solid #DDD;
   display: inline-block;
   float: left;
-  width: 200px;
-  height: 350px;
+  width: 25%;
+  height: 100%;
 }
 
 .rooms-list-wrapper {
