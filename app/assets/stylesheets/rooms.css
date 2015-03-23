@@ -39,4 +39,5 @@ ul.rooms-list {
 .add-room {
   position: absolute;
   bottom: 0px;
+  padding-right: 1px;
 }
