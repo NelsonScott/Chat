@@ -7,7 +7,7 @@ Chat.Views.rooms = Chat.Views.textFilters.extend({
 
   initialize: function(options){
     Chat.Views.rooms.__super__.initialize.apply(this, {});
-    
+
     this.rooms = options.rooms;
     this.listenTo(this.rooms, "add", this.attachRoom);
     this.listenTo(this.rooms, "remove", this.removeRoom);
@@ -32,13 +32,6 @@ Chat.Views.rooms = Chat.Views.textFilters.extend({
       return;
     }
 
-    // var found = false;
-    // this.rooms.each(function(room){
-    //   if (room.escape('name') == name) {
-    //     alert("Room already exists");
-    //     found = true;
-    //   }
-    // });
     var found = this.rooms.findWhere({"name": name})
     if (found) {
       alert("Room " + name + " already exists");
@@ -47,9 +40,6 @@ Chat.Views.rooms = Chat.Views.textFilters.extend({
       Backbone.history.navigate("rooms/" + name, {trigger: true})
       nameInput.val("");
     }
-    //
-    // if (!found){
-    // }
   },
 
   attachRoom: function(room) {

@@ -36,7 +36,7 @@ Chat.Views.publicChat = Chat.Views.textFilters.extend({
       displayName = "Guest";
     }
     displayName = this.profanityFilter(this.ASCIIOnly(displayName));
-    
+
     var formattedMessage = this.formatMedia(message);
     this.messages.create({
       content: formattedMessage,
