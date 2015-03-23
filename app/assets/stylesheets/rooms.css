@@ -17,6 +17,15 @@
   height: 100%;
 }
 
+.panel-heading {
+  background-color: #00558b !important;
+  color: white !important;
+}
+
+.panel-heading h4 {
+  text-align: center;
+}
+
 ul.rooms-list {
   position: relative;
   list-style-type: none;
