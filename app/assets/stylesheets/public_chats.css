@@ -107,12 +107,12 @@
 }
 
 .display-name-input {
+  border-radius: 0px !important;
   bottom: 0px;
   position: relative;
   float: left;
-  bottom: 1px;
   height: 100%;
-  margin-left: 1px;
+  /*margin-left: 1px;*/
   width: 29%;
 }
 
@@ -121,13 +121,14 @@
   bottom: 0px;
   border-radius: 0px !important;
   position: relative;
-  float: right;
+  /*float: right;*/
   height: 100%;
   /*margin-left: 1px;*/
-  /*width: 69%;*/
+  width: 71%;
 }
 
 .submit-content {
   position: absolute;
   visibility: hidden;
+  display: none;
 }
