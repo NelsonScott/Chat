@@ -16,7 +16,6 @@
 
 .chat-header {
   height: 10%;
-  /*border: 1px solid #DDD;*/
 }
 
 .chat-name {
@@ -102,8 +101,6 @@
   bottom: 0px;
   width: 100%;
   height: 100%;
-  /*padding-left: 1px;
-  padding-right: 1px;*/
 }
 
 .display-name-input {
@@ -112,7 +109,6 @@
   position: relative;
   float: left;
   height: 100%;
-  /*margin-left: 1px;*/
   width: 29%;
 }
 
@@ -121,9 +117,7 @@
   bottom: 0px;
   border-radius: 0px !important;
   position: relative;
-  /*float: right;*/
   height: 100%;
-  /*margin-left: 1px;*/
   width: 71%;
 }
 
