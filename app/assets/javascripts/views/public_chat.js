@@ -32,6 +32,9 @@ Chat.Views.publicChat = Chat.Views.textFilters.extend({
 
     var displayName = this.$('.display-name-input').val();
     displayName = displayName.substring(0, 15);
+    if (displayName.length == 0){
+      displayName = "Guest";
+    }
     displayName = this.profanityFilter(this.ASCIIOnly(displayName));
 
     var formattedMessage = this.formatMedia(message);
@@ -87,6 +90,7 @@ Chat.Views.publicChat = Chat.Views.textFilters.extend({
       var messageView = new Chat.Views.message({ message: message });
       this.addSubview('ul.message-list', messageView);
     }
+    // scroll to the bottom
     // var MessageList = this.$("ul.message-list");
     // MessageList.scrollTop(MessageList[0].scrollHeight);
   },
@@ -124,7 +128,7 @@ Chat.Views.publicChat = Chat.Views.textFilters.extend({
   },
 
   render: function(){
-    var content = this.template();
+    var content = this.template({name: this.messages.name});
     this.$el.html(content);
     this.attachSubviews();
     var MessageList = this.$("ul.message-list");

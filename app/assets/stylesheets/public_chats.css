@@ -1,18 +1,32 @@
 #chats {
-  /*margin-left: 25%;
-  margin-top: 150px;*/
   display: inline-block;
-  /*width: 1000;*/
-  height: 350px;
+  width: 74%;
+  height: 100%;
 }
 
 .pub-chat {
   background-color: white;
   overflow-y: scroll;
-  position: absolute;
+  position: relative;
   border: 1px solid #DDD;
-  height: 350px;
-  width: 500px;
+  border-radius: 3px;
+  height: 100%;
+  width: 100%;
+}
+
+.chat-header {
+  height: 10%;
+  /*border: 1px solid #DDD;*/
+}
+
+.chat-name {
+  margin-top: 10px;
+  height: 20px;
+  font-size: 2.5rem;
+  display: inline-block;
+  color: #555459;
+  font-weight: 900;
+  margin-left: 20px;
 }
 
 .message-list {
@@ -22,7 +36,7 @@
   padding-left: 0px;
   bottom: 45px;
   width: 100%;
-  height: 305px;
+  height: 83%;
 }
 
 .message-list li {
@@ -33,7 +47,8 @@
 }
 
 .message-content {
-  padding-left: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   width: 100%;
 }
 
@@ -41,6 +56,7 @@
   color: black;
   font-weight: 900;
   margin-top: 10px;
+  width: 100%;
 }
 
 .display-name {
@@ -75,15 +91,15 @@
 }
 
 .add-content-wrapper {
-  position: absolute;
-  margin-bottom: 0px;
-  height: 45px;
+  height: 7%;
   width: 100%;
 }
 
 .add-content {
+  position: relative;
+  bottom: 0px;
   width: 100%;
-  height: 45px;
+  height: 100%;
 }
 
 .display-name-input {
@@ -91,45 +107,20 @@
   position: relative;
   float: left;
   bottom: 1px;
-  height: 45px;
-  margin-left: -1px;
-  width: 30%;
+  height: 100%;
+  margin-left: 1px;
+  width: 29%;
 }
 
-.display-name-input::-webkit-input-placeholder { /* WebKit browsers */
-  padding-left: 1px;
-}
-.display-name-input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  margin-left: 1px;
-}
-.display-name-input::-moz-placeholder { /* Mozilla Firefox 19+ */
-  margin-left: 1px;
-}
-.display-name-input:-ms-input-placeholder { /* Internet Explorer 10+ */
-  margin-left: 1px;
-}
 
 .add-msg {
   bottom: 0px;
   position: relative;
   float: right;
   bottom: 1px;
-  height: 45px;
-  margin-right: -1px;
-  width: 70%;
-}
-
-.add-msg::-webkit-input-placeholder { /* WebKit browsers */
-  padding-left: 10px;
-}
-.add-msg:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  margin-left: 10px;
-}
-.add-msg::-moz-placeholder { /* Mozilla Firefox 19+ */
-  margin-left: 10px;
-}
-.add-msg:-ms-input-placeholder { /* Internet Explorer 10+ */
-  margin-left: 10px;
+  height: 100%;
+  margin-right: 1px;
+  width: 69%;
 }
 
 .submit-content {
