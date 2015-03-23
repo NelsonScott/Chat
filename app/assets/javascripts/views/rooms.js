@@ -6,6 +6,8 @@ Chat.Views.rooms = Chat.Views.textFilters.extend({
   },
 
   initialize: function(options){
+    Chat.Views.rooms.__super__.initialize.apply(this, {});
+    
     this.rooms = options.rooms;
     this.listenTo(this.rooms, "add", this.attachRoom);
     this.listenTo(this.rooms, "remove", this.removeRoom);
@@ -21,6 +23,7 @@ Chat.Views.rooms = Chat.Views.textFilters.extend({
     var nameInput = this.$('.add-room-input');
     var name = nameInput.val();
     name = name.substring(0, 15);
+    debugger
     name = this.profanityFilter(this.ASCIIOnly(name));
 
     var forbiddenChars = this.restrictedChars(name);
@@ -29,19 +32,24 @@ Chat.Views.rooms = Chat.Views.textFilters.extend({
       return;
     }
 
-    var found = false;
-    this.rooms.each(function(room){
-      if (room.escape('name') == name) {
-        alert("Room already exists");
-        found = true;
-      }
-    });
-
-    if (!found){
+    // var found = false;
+    // this.rooms.each(function(room){
+    //   if (room.escape('name') == name) {
+    //     alert("Room already exists");
+    //     found = true;
+    //   }
+    // });
+    var found = this.rooms.findWhere({"name": name})
+    if (found) {
+      alert("Room " + name + " already exists");
+    } else {
       this.rooms.create({ name: name });
       Backbone.history.navigate("rooms/" + name, {trigger: true})
+      nameInput.val("");
     }
-    nameInput.val("");
+    //
+    // if (!found){
+    // }
   },
 
   attachRoom: function(room) {

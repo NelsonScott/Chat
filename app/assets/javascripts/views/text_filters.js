@@ -1,4 +1,9 @@
 Chat.Views.textFilters = Backbone.CompositeView.extend({
+  initialize: function(){
+    this.profanityList = $.fn.profanity();
+    this.friendlyList = ["rainbow", "kittens", "hug", "puppy", "tickles", "dazzling", "bunnies", "balloons", "ice cream", "jello", "smiles", "sunshine"];
+  },
+
   ASCIIOnly: function(unfiltered) {
     var charCode = null;
     var filtered = Array(unfiltered.length);

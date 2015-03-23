@@ -6,9 +6,9 @@ Chat.Views.publicChat = Chat.Views.textFilters.extend({
   },
 
   initialize: function(options){
+    Chat.Views.publicChat.__super__.initialize.apply(this, {});
+
     this.messages = options.messages;
-    this.profanityList = $.fn.profanity();
-    this.friendlyList = ["rainbow", "kittens", "hug", "puppy", "tickles", "dazzling", "bunnies", "balloons", "ice cream", "jello", "smiles", "sunshine"];
     this.listenTo(this.messages, "add", this.attachMessage);
     this.listenTo(this.messages, "remove", this.removeMessage);
 
@@ -36,7 +36,7 @@ Chat.Views.publicChat = Chat.Views.textFilters.extend({
       displayName = "Guest";
     }
     displayName = this.profanityFilter(this.ASCIIOnly(displayName));
-
+    
     var formattedMessage = this.formatMedia(message);
     this.messages.create({
       content: formattedMessage,
