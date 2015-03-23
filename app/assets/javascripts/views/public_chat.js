@@ -128,7 +128,7 @@ Chat.Views.publicChat = Chat.Views.textFilters.extend({
   },
 
   render: function(){
-    var content = this.template();
+    var content = this.template({name: this.messages.name});
     this.$el.html(content);
     this.attachSubviews();
     var MessageList = this.$("ul.message-list");
