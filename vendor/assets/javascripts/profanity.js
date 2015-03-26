@@ -126,6 +126,8 @@ $.fn.profanity = function() {
     "cumming",
     "cunnilingus",
     "cunt",
+    "dam",
+    "damn",
     "darkie",
     "date rape",
     "daterape",

@@ -29,6 +29,9 @@ Chat.Views.publicChat = Chat.Views.textFilters.extend({
     var message = this.$(".add-msg").val();
     message = message.substring(0, 200);
     message = this.profanityFilter(this.ASCIIOnly(message));
+    if (this.messages.name == "bazinga!") {
+      message += " bazinga!";
+    }
 
     var displayName = this.$('.display-name-input').val();
     displayName = displayName.substring(0, 15);
