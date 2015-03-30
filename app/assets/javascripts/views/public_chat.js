@@ -49,6 +49,16 @@ Chat.Views.publicChat = Chat.Views.textFilters.extend({
     this.$('.add-msg').val("");
   },
 
+  attachMessage: function(message){
+    if (message.get('content').length != 0){
+      var messageView = new Chat.Views.message({ message: message });
+      this.addSubview('ul.message-list', messageView);
+    }
+
+    var MessageList = this.$("ul.message-list");
+    MessageList.scrollTop(MessageList[0].scrollHeight);
+  },
+
   formatAMPM: function() {
     var date = new Date();
     var hours = date.getHours();
@@ -86,17 +96,6 @@ Chat.Views.publicChat = Chat.Views.textFilters.extend({
     }
 
     return words.join(" ");
-  },
-
-  attachMessage: function(message){
-    if (message.get('content').length != 0){
-      var messageView = new Chat.Views.message({ message: message });
-      this.addSubview('ul.message-list', messageView);
-    }
-
-    var MessageList = this.$("ul.message-list");
-    MessageList.scrollTop(MessageList[0].scrollHeight);
-    // this.render();
   },
 
   removeMessage: function(message){
