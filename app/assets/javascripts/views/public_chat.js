@@ -39,6 +39,7 @@ Chat.Views.publicChat = Chat.Views.textFilters.extend({
       displayName = "Guest";
     }
     displayName = this.profanityFilter(this.ASCIIOnly(displayName));
+    Chat.displayName = displayName;
 
     var formattedMessage = this.formatMedia(message);
     this.messages.create({
@@ -131,7 +132,8 @@ Chat.Views.publicChat = Chat.Views.textFilters.extend({
   },
 
   render: function(){
-    var content = this.template({name: this.messages.name});
+    if (Chat.displayName) var displayName = Chat.displayName;
+    var content = this.template({name: this.messages.name, displayName: displayName});
     this.$el.html(content);
     this.attachSubviews();
     var MessageList = this.$("ul.message-list");

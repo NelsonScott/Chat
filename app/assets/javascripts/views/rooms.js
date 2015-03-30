@@ -36,8 +36,7 @@ Chat.Views.rooms = Chat.Views.textFilters.extend({
       alert("Room " + name + " already exists");
     } else {
       this.rooms.create({ name: name });
-      Backbone.history.navigate("rooms/" + name, {trigger: true})
-      nameInput.val("");
+      Backbone.history.navigate("rooms/" + name, {trigger: true, test: true})
     }
   },
 
