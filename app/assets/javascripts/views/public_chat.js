@@ -12,10 +12,10 @@ Chat.Views.publicChat = Chat.Views.textFilters.extend({
     this.listenTo(this.messages, "add", this.attachMessage);
     this.listenTo(this.messages, "remove", this.removeMessage);
 
-    var that = this;
-    this.messages.each(function(msg){
-      that.attachMessage(msg);
-    });
+    this.render();
+    this.messages.each(_.bind(function(msg){
+      this.attachMessage(msg);
+    }, this));
   },
 
   events: {
@@ -79,7 +79,7 @@ Chat.Views.publicChat = Chat.Views.textFilters.extend({
           if (ampersandPosition != -1) {
             video_id = video_id.substring(0, ampersandPosition);
           }
-          // TODO fix scaling
+
           words[i] = "<iframe width='400' height='223' src='https://www.youtube.com/embed/"+ video_id + "' frameborder='0' allowfullscreen></iframe>";
         }
       }
@@ -93,9 +93,10 @@ Chat.Views.publicChat = Chat.Views.textFilters.extend({
       var messageView = new Chat.Views.message({ message: message });
       this.addSubview('ul.message-list', messageView);
     }
-    // scroll to the bottom
-    // var MessageList = this.$("ul.message-list");
-    // MessageList.scrollTop(MessageList[0].scrollHeight);
+
+    var MessageList = this.$("ul.message-list");
+    MessageList.scrollTop(MessageList[0].scrollHeight);
+    // this.render();
   },
 
   removeMessage: function(message){
